@@ -145,7 +145,7 @@ gulp.task('lint', function (cb) {
   gulp.src([paths.scss + '**/*.scss'])
     .pipe(scsslint({customReport: require('gulp-scss-lint-stylish')}));
 
-  gulp.src([paths.js + '**/*.js', '!**/*.min.js', 'rename.js', 'gulpfile.js'])
+  gulp.src([paths.js + '**/*.js', '!**/*.min.js', 'gulpfile.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
