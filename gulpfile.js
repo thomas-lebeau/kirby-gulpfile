@@ -23,7 +23,7 @@ var zip = require('gulp-zip');
 var reload = browserSync.reload;
 
 var configs = {
-  server: {
+  connect: {
     hostname: '127.0.0.1',
     port: '8000',
     base: '.',
@@ -133,7 +133,7 @@ gulp.task('copy', function () {
 // Cleanup generated files
 gulp.task('clean', function (cb) {
   del([
-    paths.css + '**/*.min',
+    paths.css + '**/*.min.css',
     paths.css + '**/*.map',
     paths.js + '**/*.min.js',
     paths.js + '**/*.map'
@@ -182,7 +182,7 @@ gulp.task('zip', ['build'], function () {
 
 // Run a development server with browsersync
 gulp.task('serve', ['compile'], function () {
-  connect.server(configs.server, function () {
+  connect.server(configs.connect, function () {
     browserSync({proxy: configs.server.hostname + ':' + configs.server.port});
   });
 
